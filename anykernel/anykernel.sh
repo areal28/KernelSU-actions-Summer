@@ -4,16 +4,18 @@
 ### AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=KernelSU For crdroid-13.0
-do.devicecheck=0
+kernel.string=Darkmoon by KamiKaonashi
+do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=enchilada
-device.name2=fajita
-supported.versions=
-supported.patchlevels=
+device.name1=mido
+device.name2=Redmi Note 4
+device.name3=Redmi Note 4x
+device.name4=redmi note 4
+supported.versions=12, 12.1, 13, 14
+supported.patchlevels=2018-03 -
 '; } # end properties
 
 ### AnyKernel install
@@ -26,7 +28,7 @@ set_perm_recursive 0 0 750 750 $ramdisk/init* $ramdisk/sbin;
 
 ## boot shell variables
 block=/dev/block/bootdevice/by-name/boot;
-is_slot_device=1;
+is_slot_device=0;
 ramdisk_compression=auto;
 patch_vbmeta_flag=auto;
 
@@ -35,7 +37,6 @@ patch_vbmeta_flag=auto;
 
 # boot install
 dump_boot; # use split_boot to skip ramdisk unpack, e.g. for devices with init_boot ramdisk
-
 write_boot; # use flash_boot to skip ramdisk repack, e.g. for devices with init_boot ramdisk
 ## end boot install
 
